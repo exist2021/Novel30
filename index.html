@@ -1,13 +1,893 @@
-<script>
-	if (!document.querySelector('#ftjdqni1m')) {
-		var newDiv = document.createElement('div');
-		newDiv.setAttribute('key', 'Single Track');
-		newDiv.setAttribute('class', 'ft');
-		newDiv.setAttribute('id', 'ftjdqni1m');
-		var newScript = document.createElement('script');
-		newScript.setAttribute('src', 'https://wdg.fouita.com/widgets/0x3509b6.js');
-		newDiv.appendChild(newScript);
+<!DOCTYPE html>
 
-		document.body.appendChild(newDiv);
-	}
-</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Wrote & Published My Novel in 30 Days</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap');
+
+```
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        background: #ffffff;
+    }
+    
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .cover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px 25px;
+        text-align: center;
+        border-radius: 0;
+        margin: -20px -20px 30px -20px;
+    }
+    
+    .cover h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+    
+    .cover .subtitle {
+        font-size: 16px;
+        opacity: 0.95;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+    
+    .cover .author {
+        font-size: 15px;
+        margin-top: 25px;
+        opacity: 0.9;
+    }
+    
+    h2 {
+        font-family: 'Playfair Display', serif;
+        color: #667eea;
+        font-size: 24px;
+        margin: 30px 0 15px 0;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 8px;
+    }
+    
+    h3 {
+        color: #4a5568;
+        font-size: 20px;
+        margin: 25px 0 12px 0;
+        font-weight: 700;
+    }
+    
+    h4 {
+        color: #667eea;
+        font-size: 17px;
+        margin: 20px 0 10px 0;
+        font-weight: 600;
+    }
+    
+    p {
+        margin-bottom: 12px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .highlight-box {
+        background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+        border-left: 4px solid #667eea;
+        padding: 15px 18px;
+        margin: 20px 0;
+        border-radius: 6px;
+    }
+    
+    .story-box {
+        background: linear-gradient(135deg, #fff5f5 0%, #ffeef0 100%);
+        border-left: 4px solid #f56565;
+        padding: 15px 18px;
+        margin: 20px 0;
+        border-radius: 6px;
+    }
+    
+    .tip-box {
+        background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+        border-left: 4px solid #48bb78;
+        padding: 15px 18px;
+        margin: 20px 0;
+        border-radius: 6px;
+    }
+    
+    .tip-box::before {
+        content: "💡 Pro Tip: ";
+        font-weight: 700;
+        color: #48bb78;
+    }
+    
+    ul, ol {
+        margin: 15px 0 15px 25px;
+    }
+    
+    li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+        font-size: 15px;
+    }
+    
+    .cost-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 6px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+    
+    .cost-table th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 12px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .cost-table td {
+        padding: 10px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 14px;
+    }
+    
+    .cost-table tr:nth-child(even) {
+        background-color: #f7fafc;
+    }
+    
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+        margin: 20px 0;
+    }
+    
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .timeline-item {
+        position: relative;
+        margin-bottom: 18px;
+        padding-left: 15px;
+        font-size: 15px;
+    }
+    
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #667eea;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #667eea;
+    }
+    
+    .timeline-item strong {
+        color: #667eea;
+        font-weight: 700;
+    }
+    
+    .resources-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    
+    .resource-card {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .resource-card:hover {
+        border-color: #667eea;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+    }
+    
+    .resource-card h4 {
+        margin-top: 0;
+        color: #667eea;
+        font-size: 17px;
+    }
+    
+    .resource-card p {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    
+    .resource-card a {
+        color: #667eea;
+        text-decoration: none;
+        font-size: 14px;
+        word-break: break-word;
+    }
+    
+    .resource-card a:hover {
+        text-decoration: underline;
+    }
+    
+    .contact-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 25px 20px;
+        border-radius: 10px;
+        margin: 30px 0;
+        text-align: center;
+    }
+    
+    .contact-box h3 {
+        color: white;
+        margin-top: 0;
+        font-size: 22px;
+    }
+    
+    .contact-box a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        display: block;
+        margin: 12px 0;
+        padding: 12px 20px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-size: 15px;
+    }
+    
+    .contact-box a:hover {
+        background: rgba(255,255,255,0.3);
+        transform: translateY(-2px);
+    }
+    
+    .cta-box {
+        background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+        color: white;
+        padding: 25px 20px;
+        border-radius: 10px;
+        margin: 30px 0;
+        text-align: center;
+    }
+    
+    .cta-box h3 {
+        color: white;
+        margin-top: 0;
+        font-size: 24px;
+    }
+    
+    .cta-box p {
+        font-size: 16px;
+    }
+    
+    blockquote {
+        border-left: 3px solid #667eea;
+        padding: 15px 20px;
+        margin: 20px 0;
+        background: #f7fafc;
+        font-style: italic;
+        border-radius: 0 6px 6px 0;
+        font-size: 15px;
+    }
+    
+    .number-badge {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 26px;
+        font-weight: 700;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+    
+    a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    .page-break {
+        page-break-after: always;
+    }
+    
+    @media print {
+        .container {
+            max-width: 100%;
+            padding: 20px;
+        }
+        
+        .cover {
+            margin: -20px -20px 40px -20px;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .container {
+            padding: 40px;
+        }
+        
+        .cover {
+            padding: 60px 40px;
+            margin: -40px -40px 50px -40px;
+        }
+        
+        .cover h1 {
+            font-size: 42px;
+        }
+        
+        .cover .subtitle {
+            font-size: 20px;
+        }
+        
+        .cover .author {
+            font-size: 17px;
+        }
+        
+        h2 {
+            font-size: 30px;
+            margin: 40px 0 20px 0;
+        }
+        
+        h3 {
+            font-size: 22px;
+            margin: 30px 0 15px 0;
+        }
+        
+        h4 {
+            font-size: 18px;
+        }
+        
+        p {
+            font-size: 16px;
+        }
+        
+        .highlight-box, .story-box, .tip-box {
+            padding: 20px 25px;
+            margin: 25px 0;
+        }
+        
+        .resources-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        
+        .contact-box, .cta-box {
+            padding: 35px 30px;
+            margin: 40px 0;
+        }
+        
+        .contact-box a {
+            display: inline-block;
+            margin: 10px 12px;
+        }
+        
+        .cost-table th, .cost-table td {
+            padding: 15px;
+            font-size: 15px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <div class="cover">
+            <h1>How I Wrote & Published<br>My Novel in 30 Days</h1>
+            <div class="subtitle">A Complete AI-Assisted Novel Writing Workflow</div>
+            <div class="author">By Manoj Nayak<br>Author of The Bombay Business Club</div>
+        </div>
+
+```
+    <div class="story-box">
+        <h2>My Story: From 10-Year Dream to 30-Day Reality</h2>
+        <p>I had a story burning inside me. A novel called <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a> that I desperately wanted to write. But like many aspiring authors, I looked at the mountain ahead and thought: "This will take at least 10 years."</p>
+        
+        <p>I had no literary training. I wrote blog posts, sure, but a full novel? That seemed like an insurmountable task requiring skills I simply didn't have.</p>
+        
+        <p>Then I remembered: AI can help with this.</p>
+        
+        <p><strong>What happened next surprised even me.</strong> In just 30 days, I wrote, published, and distributed my complete novel across multiple platforms. And I'm going to show you exactly how I did it.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Part 1: The Writing Workflow</h2>
+
+    <h3>The Foundation: Claude AI</h3>
+    <p>If you're in the content writing space, you already know <a href="https://claude.ai" target="_blank">Claude</a> is the best AI writing platform available. If you don't know it yet, this is your introduction.</p>
+
+    <div class="highlight-box">
+        <h4>Why Claude?</h4>
+        <ul>
+            <li>Largest context window of any AI (remembers your entire story)</li>
+            <li>Superior writing quality and tone consistency</li>
+            <li>Excellent at maintaining character continuity</li>
+            <li>Best for creative writing projects</li>
+        </ul>
+    </div>
+
+    <h3>My Daily Writing Process</h3>
+
+    <h4><span class="number-badge">1</span> Structure Your Novel</h4>
+    <p>Before writing a single word, I broke down my novel into manageable pieces:</p>
+    <ul>
+        <li><strong>12 chapters total</strong></li>
+        <li><strong>Each chapter divided into 4-5 parts</strong></li>
+        <li><strong>Total: ~60 parts to write</strong></li>
+    </ul>
+    <p>This made the impossible feel achievable. Instead of "write a novel," my task became "write one part today."</p>
+
+    <h4><span class="number-badge">2</span> The Audio Narration Method</h4>
+    <p>Here's the secret that made everything flow naturally:</p>
+    <ol>
+        <li><strong>Record yourself telling the story</strong> - I used an audio recorder software (you can use any recorder app, or Claude's built-in audio mode)</li>
+        <li><strong>Narrate one part at a time</strong> - Just talk through what happens in that section, as if you're telling a friend</li>
+        <li><strong>Get the transcript</strong> - Most recording software provides this automatically</li>
+        <li><strong>Feed it to Claude</strong> - Copy-paste the transcript with this prompt:</li>
+    </ol>
+
+    <blockquote>
+        "This is Chapter [X], Part [X] of my novel. Here's my narration: [paste transcript]. Please write this section in a compelling narrative style."
+    </blockquote>
+
+    <h4><span class="number-badge">3</span> The Refinement Process</h4>
+    <p>The first output from Claude was rarely perfect. It took me <strong>4-5 iterations per part</strong> to get:</p>
+    <ul>
+        <li>The right tone</li>
+        <li>Character voices correct</li>
+        <li>The pacing just right</li>
+    </ul>
+    <p>Don't be discouraged by this. Refinement is where your novel goes from good to great.</p>
+
+    <h4><span class="number-badge">4</span> Maintaining Continuity</h4>
+    <p>Here's the critical part that most people miss:</p>
+    
+    <div class="highlight-box">
+        <p><strong>After every few chapters:</strong></p>
+        <ol>
+            <li>Upload your completed chapters as files to Claude</li>
+            <li>Create a character sketch document for all major characters</li>
+            <li>Fine-tune these sketches with Claude's help</li>
+            <li>Feed this context to Claude before writing new sections</li>
+        </ol>
+        <p>This ensures Claude never forgets your characters, their motivations, or your story's continuity.</p>
+    </div>
+
+    <div class="tip-box">
+        Claude's massive context window means it can keep track of your entire novel. This is its superpower.
+    </div>
+
+    <h3>About Claude Credits</h3>
+    <p><strong>Free Plan:</strong> I wrote my entire novel on Claude's free plan. The catch? You have to wait 4 hours when your credits expire before getting new ones.</p>
+    
+    <p><strong>Paid Plan:</strong> ₹1,999/month (approximately $20) - Totally worth it if you want to write without interruption.</p>
+    
+    <p><strong>My Experience with ChatGPT:</strong> I tried writing one chapter in ChatGPT when my Claude credits ran out. I wasn't happy with the result. All 60 parts (except that one chapter) were written with Claude AI.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Part 2: The Publishing Roadmap</h2>
+
+    <h3>eBook Publishing</h3>
+
+    <div class="resources-grid">
+        <div class="resource-card">
+            <h4>Amazon KDP</h4>
+            <p><a href="https://kdp.amazon.com" target="_blank">kdp.amazon.com</a></p>
+            <p><strong>Format:</strong> ePub or MOBI</p>
+            <p><strong>Cost:</strong> Free</p>
+            <p><strong>Reach:</strong> Global</p>
+            <p>Your first stop. Amazon is the largest book marketplace in the world.</p>
+        </div>
+
+        <div class="resource-card">
+            <h4>Google Play Books</h4>
+            <p><a href="https://play.google.com/books/publish" target="_blank">Google Play Books</a></p>
+            <p><strong>Format:</strong> ePub or PDF</p>
+            <p><strong>Cost:</strong> Free</p>
+            <p><strong>Note:</strong> Longer approval process</p>
+        </div>
+
+        <div class="resource-card">
+            <h4>Apple Books</h4>
+            <p><a href="https://www.apple.com/apple-books/" target="_blank">Apple Books</a></p>
+            <p><strong>Format:</strong> ePub</p>
+            <p><strong>Cost:</strong> Free</p>
+            <p><strong>Note:</strong> Thorough review process</p>
+        </div>
+
+        <div class="resource-card">
+            <h4>Gumroad</h4>
+            <p><a href="https://gumroad.com" target="_blank">gumroad.com</a></p>
+            <p><strong>Format:</strong> Any</p>
+            <p><strong>Cost:</strong> Free (small commission)</p>
+            <p><strong>Best for:</strong> Immediate distribution</p>
+        </div>
+    </div>
+
+    <h3>Print Book Publishing</h3>
+
+    <h4>Amazon KDP Print</h4>
+    <p><strong>Issue:</strong> Not available in India for custom printing<br>
+    <strong>Available in:</strong> USA, UK, and select countries<br>
+    <strong>Cost of my book:</strong> ~₹3,000 (due to international printing and shipping)</p>
+
+    <h4>Pothi.com - The India Solution</h4>
+    <div class="highlight-box">
+        <p><strong>Platform:</strong> <a href="https://pothi.com" target="_blank">pothi.com</a></p>
+        <p><strong>Why I chose it:</strong> Only Indian publisher that custom prints one copy at a time</p>
+        <p><strong>Cost breakdown:</strong></p>
+        <ul>
+            <li>Book printing: ₹379</li>
+            <li>Shipping: ₹170</li>
+            <li><strong>Total: ~₹550 per book</strong></li>
+        </ul>
+        <p>Perfect for readers who prefer physical books but don't want to pay international shipping costs.</p>
+    </div>
+
+    <h3>Online Reading Platforms</h3>
+
+    <h4>Wattpad</h4>
+    <p><strong>Platform:</strong> <a href="https://www.wattpad.com" target="_blank">wattpad.com</a><br>
+    <strong>Audience:</strong> Young adult readers, serial fiction fans</p>
+
+    <h4>Webnovel</h4>
+    <p><strong>Platform:</strong> <a href="https://www.webnovel.com" target="_blank">webnovel.com</a><br>
+    <strong>Audience:</strong> Popular in India and Asia</p>
+
+    <p>Both platforms let readers discover your work for free while you build an audience.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Part 3: Creating Supporting Content</h2>
+
+    <h3>Audio & Video Marketing</h3>
+
+    <h4>NotebookLLM Audio Podcasts</h4>
+    <p>I created audio versions of my book using NotebookLM.</p>
+    
+    <div class="highlight-box">
+        <p><strong>Results:</strong></p>
+        <ul>
+            <li>Almost 200 listens</li>
+            <li>Great for people who prefer audio content</li>
+            <li>Easy to share on WhatsApp and social media</li>
+        </ul>
+    </div>
+
+    <h4>Video Trailers</h4>
+    <p>I also created video trailers, though these haven't gotten as much traction as the audio.</p>
+    
+    <div class="tip-box">
+        Audio content seems to resonate more with readers than video for books.
+    </div>
+
+    <h3>Your Author Website</h3>
+
+    <h4>Firebase Studio</h4>
+    <p><strong>Platform:</strong> <a href="https://firebase.google.com" target="_blank">firebase.google.com</a><br>
+    <strong>Time to create:</strong> 10 minutes<br>
+    <strong>Cost:</strong> Free</p>
+
+    <p>I created my entire landing page for free using Firebase Studio. It includes:</p>
+    <ul>
+        <li>Book description</li>
+        <li>Download links</li>
+        <li>Links to all platforms</li>
+        <li>Audio podcast embed</li>
+        <li>Contact information</li>
+    </ul>
+
+    <h2>Part 4: Distribution & Marketing Strategy</h2>
+
+    <h3>Free Distribution</h3>
+    <p><strong>Why I chose free:</strong> The marginal cost of distributing digital books is zero. Why not give it away and build an audience?</p>
+
+    <div class="highlight-box">
+        <p><strong>My setup:</strong></p>
+        <ul>
+            <li>Uploaded files to Google Drive</li>
+            <li>Created shareable links</li>
+            <li>Embedded links on my website</li>
+        </ul>
+    </div>
+
+    <h3>Beta Readers & Feedback</h3>
+    <p>Before final publishing, I distributed PDF and ePub versions to beta readers for free.</p>
+
+    <p><strong>What I learned:</strong></p>
+    <ul>
+        <li>Some elderly readers had trouble with PDFs</li>
+        <li>ePub format worked better for accessibility</li>
+        <li>Feedback helped me fix formatting issues before official launch</li>
+    </ul>
+
+    <h3>Creating Professional Files</h3>
+
+    <h4>For ePub & PDF Conversion</h4>
+
+    <p><strong>Option 1: ChatGPT</strong><br>
+    I used ChatGPT to convert my manuscript into professional ePub and PDF formats. It does an excellent job.</p>
+
+    <p><strong>Option 2: Scrivener</strong><br>
+    Professional writing software that exports to multiple formats. Worth the investment if you plan to write more books.</p>
+
+    <p><strong>Option 3: Online Converters</strong><br>
+    Many free PDF to ePub converters available online. Quality varies, so test before distributing.</p>
+
+    <h3>Media Outreach</h3>
+
+    <h4>Scribd for Media Lists</h4>
+    <p>I took a free one-month trial of Scribd where I downloaded:</p>
+    <ul>
+        <li>Bollywood media contact lists</li>
+        <li>Book reviewer lists</li>
+        <li>Journalist contact information</li>
+    </ul>
+    <p>Then I sent personalized emails to these contacts introducing my novel.</p>
+
+    <h3>Leveraging Your Existing Network</h3>
+
+    <p><strong>WhatsApp Broadcast Lists</strong><br>
+    Don't underestimate the power of your existing network. My WhatsApp broadcasts generated initial buzz.</p>
+
+    <p><strong>Email Lists</strong><br>
+    I was already on Substack and other mailing platforms, which I leveraged for announcements.</p>
+
+    <p><strong>Social Media</strong><br>
+    Regular updates on writing progress, publication milestones, and reader testimonials.</p>
+
+    <div class="page-break"></div>
+
+    <h2>Part 5: Tools & Resources Summary</h2>
+
+    <div class="resources-grid">
+        <div class="resource-card">
+            <h4>Writing Tools</h4>
+            <ul style="margin-left: 0; list-style: none;">
+                <li>• <a href="https://claude.ai" target="_blank">Claude AI</a></li>
+                <li>• Audio Recorder (any app)</li>
+                <li>• <a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h4>Publishing</h4>
+            <ul style="margin-left: 0; list-style: none;">
+                <li>• <a href="https://kdp.amazon.com" target="_blank">Amazon KDP</a></li>
+                <li>• <a href="https://play.google.com/books/publish" target="_blank">Google Play</a></li>
+                <li>• <a href="https://www.apple.com/apple-books" target="_blank">Apple Books</a></li>
+                <li>• <a href="https://pothi.com" target="_blank">Pothi.com</a></li>
+                <li>• <a href="https://gumroad.com" target="_blank">Gumroad</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h4>Distribution</h4>
+            <ul style="margin-left: 0; list-style: none;">
+                <li>• <a href="https://www.wattpad.com" target="_blank">Wattpad</a></li>
+                <li>• <a href="https://www.webnovel.com" target="_blank">Webnovel</a></li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h4>Supporting Tools</h4>
+            <ul style="margin-left: 0; list-style: none;">
+                <li>• NotebookLM</li>
+                <li>• Firebase Studio</li>
+                <li>• Scrivener</li>
+                <li>• Scribd</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Cost Breakdown</h2>
+
+    <table class="cost-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Free Option</th>
+                <th>Paid Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude AI</td>
+                <td>Free (4-hour wait)</td>
+                <td>₹1,999/month</td>
+            </tr>
+            <tr>
+                <td>Amazon KDP</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Google Play Books</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Apple Books</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Gumroad</td>
+                <td>Free (commission)</td>
+                <td>Free (commission)</td>
+            </tr>
+            <tr>
+                <td>Pothi.com</td>
+                <td>Free (print on demand)</td>
+                <td>Free (print on demand)</td>
+            </tr>
+            <tr>
+                <td>Wattpad/Webnovel</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Firebase Website</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>NotebookLM</td>
+                <td>Free</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td>Scrivener (optional)</td>
+                <td>-</td>
+                <td>~₹4,000 one-time</td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td><strong>₹0</strong></td>
+                <td><strong>₹1,999/month while writing</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>My 30-Day Timeline</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <strong>Days 1-3:</strong> Planning and chapter breakdown
+        </div>
+        <div class="timeline-item">
+            <strong>Days 4-27:</strong> Writing (one part every 2-3 days)
+        </div>
+        <div class="timeline-item">
+            <strong>Days 28-29:</strong> Final editing and formatting
+        </div>
+        <div class="timeline-item">
+            <strong>Day 30:</strong> Upload to all platforms
+        </div>
+    </div>
+
+    <div class="tip-box">
+        The actual writing took about 24 days. The rest was formatting and uploading.
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>Common Mistakes I Made (So You Don't Have To)</h2>
+
+    <div class="story-box">
+        <ol>
+            <li><strong>Not creating character sketches early enough</strong> - Start this from Chapter 2 or 3</li>
+            <li><strong>Writing one chapter in ChatGPT</strong> - Stick to one AI platform for consistency</li>
+            <li><strong>Not testing PDF formats with beta readers sooner</strong> - Test early and often</li>
+            <li><strong>Underestimating the time for platform approvals</strong> - Start the Google Play and Apple Books process early</li>
+        </ol>
+    </div>
+
+    <div class="cta-box">
+        <h3>Your Next Steps</h3>
+        <ol style="text-align: left; max-width: 600px; margin: 20px auto;">
+            <li><strong>Choose your story</strong> - What have you been putting off?</li>
+            <li><strong>Break it down</strong> - Chapters and parts, make it manageable</li>
+            <li><strong>Start with one part</strong> - Narrate it today</li>
+            <li><strong>Feed it to Claude</strong> - Get your first draft</li>
+            <li><strong>Refine and repeat</strong> - 4-5 iterations per part</li>
+        </ol>
+    </div>
+
+    <div class="contact-box">
+        <h3>Need Help?</h3>
+        <p>If you need guidance on any part of this workflow, I'm happy to help.<br>I offer free consultations because I believe everyone has a story worth telling.</p>
+        
+        <div style="margin-top: 30px;">
+            <a href="tel:+919892334681">📞 +91 98923 34681</a>
+            <a href="mailto:manoj@manojnayak.com">✉️ manoj@manojnayak.com</a>
+            <a href="https://manojnayak.com" target="_blank">🌐 manojnayak.com</a>
+        </div>
+    </div>
+
+    <h2>Final Thoughts</h2>
+
+    <div class="highlight-box">
+        <p style="font-size: 18px; line-height: 1.8;">A year ago, "write a novel" was in my 10-year bucket list. Today, <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a> is published and being read by people around the world.</p>
+        
+        <p style="font-size: 18px; line-height: 1.8;">The difference? I stopped seeing it as one massive project and started seeing it as 60 small tasks.</p>
+    </div>
+
+    <div class="cta-box">
+        <h3 style="font-size: 32px;">You have a story in you.</h3>
+        <p style="font-size: 18px; margin: 20px 0;">With AI as your co-pilot and this workflow as your map, there's nothing stopping you from writing it in the next 30 days.</p>
+        <p style="font-size: 22px; font-weight: 700; margin-top: 30px;">Your novel is waiting. Start today.</p>
+    </div>
+
+    <hr style="border: none; border-top: 2px solid #e2e8f0; margin: 50px 0;">
+
+    <div style="text-align: center; padding: 40px 0;">
+        <h3>About the Author</h3>
+        <p style="font-size: 18px; line-height: 1.8; max-width: 700px; margin: 20px auto;">
+            <strong><a href="https://manojnayak.com" target="_blank">Manoj Nayak</a></strong> is the author of <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a>, a novel written and published in 30 days using AI-assisted writing techniques. Through this innovative approach, Manoj transformed a 10-year dream into reality, proving that with the right tools and workflow, anyone can become a published author.
+        </p>
+        
+        <div style="margin: 40px 0;">
+            <a href="https://thebbc.shop" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; margin: 10px;">Read The Bombay Business Club</a>
+        </div>
+
+        <p style="margin-top: 30px; color: #718096;">
+            Connect with Manoj:<br>
+            <a href="https://manojnayak.com" target="_blank">manojnayak.com</a> | 
+            <a href="mailto:manoj@manojnayak.com">manoj@manojnayak.com</a> | 
+            <a href="tel:+919892334681">+91 98923 34681</a>
+        </p>
+    </div>
+
+    <div style="background: #f7fafc; padding: 30px; border-radius: 12px; text-align: center; margin: 50px 0;">
+        <p style="font-style: italic; color: #4a5568; font-size: 16px; margin: 0;">
+            This guide is free to share and distribute.<br>
+            If it helped you, pay it forward by helping another aspiring author.
+        </p>
+    </div>
+
+</div>
+```
+
+</body>
+</html>
