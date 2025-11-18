@@ -15,11 +15,65 @@
         box-sizing: border-box;
     }
     
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7fafc;
+        --bg-gradient-start: #f6f8fb;
+        --bg-gradient-end: #e9ecef;
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --border-color: #e2e8f0;
+        --accent-purple: #667eea;
+        --accent-purple-dark: #764ba2;
+        --box-story-start: #fff5f5;
+        --box-story-end: #ffeef0;
+        --box-tip-start: #f0fff4;
+        --box-tip-end: #e6ffed;
+        --shadow-color: rgba(0,0,0,0.1);
+    }
+    
+    [data-theme="dark"] {
+        --bg-primary: #1a202c;
+        --bg-secondary: #2d3748;
+        --bg-gradient-start: #2d3748;
+        --bg-gradient-end: #1a202c;
+        --text-primary: #e2e8f0;
+        --text-secondary: #cbd5e0;
+        --border-color: #4a5568;
+        --box-story-start: #2d1b1b;
+        --box-story-end: #3d2424;
+        --box-tip-start: #1b2d1b;
+        --box-tip-end: #243d24;
+        --shadow-color: rgba(0,0,0,0.4);
+    }
+    
     body {
         font-family: 'Inter', sans-serif;
         line-height: 1.6;
-        color: #2d3748;
-        background: #ffffff;
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--accent-purple);
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0 4px 12px var(--shadow-color);
+        transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px var(--shadow-color);
     }
     
     .container {
@@ -59,22 +113,22 @@
     
     h2 {
         font-family: 'Playfair Display', serif;
-        color: #667eea;
+        color: var(--accent-purple);
         font-size: 24px;
         margin: 30px 0 15px 0;
-        border-bottom: 3px solid #667eea;
+        border-bottom: 3px solid var(--accent-purple);
         padding-bottom: 8px;
     }
     
     h3 {
-        color: #4a5568;
+        color: var(--text-secondary);
         font-size: 20px;
         margin: 25px 0 12px 0;
         font-weight: 700;
     }
     
     h4 {
-        color: #667eea;
+        color: var(--accent-purple);
         font-size: 17px;
         margin: 20px 0 10px 0;
         font-weight: 600;
@@ -87,15 +141,15 @@
     }
     
     .highlight-box {
-        background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
-        border-left: 4px solid #667eea;
+        background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+        border-left: 4px solid var(--accent-purple);
         padding: 15px 18px;
         margin: 20px 0;
         border-radius: 6px;
     }
     
     .story-box {
-        background: linear-gradient(135deg, #fff5f5 0%, #ffeef0 100%);
+        background: linear-gradient(135deg, var(--box-story-start) 0%, var(--box-story-end) 100%);
         border-left: 4px solid #f56565;
         padding: 15px 18px;
         margin: 20px 0;
@@ -103,7 +157,7 @@
     }
     
     .tip-box {
-        background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+        background: linear-gradient(135deg, var(--box-tip-start) 0%, var(--box-tip-end) 100%);
         border-left: 4px solid #48bb78;
         padding: 15px 18px;
         margin: 20px 0;
@@ -130,7 +184,7 @@
         width: 100%;
         border-collapse: collapse;
         margin: 20px 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 4px var(--shadow-color);
         border-radius: 6px;
         overflow: hidden;
         font-size: 14px;
@@ -147,12 +201,13 @@
     
     .cost-table td {
         padding: 10px;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--border-color);
         font-size: 14px;
+        background: var(--bg-primary);
     }
     
-    .cost-table tr:nth-child(even) {
-        background-color: #f7fafc;
+    .cost-table tr:nth-child(even) td {
+        background-color: var(--bg-secondary);
     }
     
     .timeline {
@@ -187,12 +242,12 @@
         height: 12px;
         border-radius: 50%;
         background: #667eea;
-        border: 2px solid white;
+        border: 2px solid var(--bg-primary);
         box-shadow: 0 0 0 2px #667eea;
     }
     
     .timeline-item strong {
-        color: #667eea;
+        color: var(--accent-purple);
         font-weight: 700;
     }
     
@@ -204,21 +259,21 @@
     }
     
     .resource-card {
-        background: white;
-        border: 2px solid #e2e8f0;
+        background: var(--bg-primary);
+        border: 2px solid var(--border-color);
         border-radius: 8px;
         padding: 15px;
         transition: all 0.3s ease;
     }
     
     .resource-card:hover {
-        border-color: #667eea;
+        border-color: var(--accent-purple);
         box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
     }
     
     .resource-card h4 {
         margin-top: 0;
-        color: #667eea;
+        color: var(--accent-purple);
         font-size: 17px;
     }
     
@@ -228,7 +283,7 @@
     }
     
     .resource-card a {
-        color: #667eea;
+        color: var(--accent-purple);
         text-decoration: none;
         font-size: 14px;
         word-break: break-word;
@@ -291,10 +346,10 @@
     }
     
     blockquote {
-        border-left: 3px solid #667eea;
+        border-left: 3px solid var(--accent-purple);
         padding: 15px 20px;
         margin: 20px 0;
-        background: #f7fafc;
+        background: var(--bg-secondary);
         font-style: italic;
         border-radius: 0 6px 6px 0;
         font-size: 15px;
@@ -302,7 +357,7 @@
     
     .number-badge {
         display: inline-block;
-        background: #667eea;
+        background: var(--accent-purple);
         color: white;
         width: 26px;
         height: 26px;
@@ -315,7 +370,7 @@
     }
     
     a {
-        color: #667eea;
+        color: var(--accent-purple);
         text-decoration: none;
         font-weight: 600;
     }
@@ -336,6 +391,10 @@
         
         .cover {
             margin: -20px -20px 40px -20px;
+        }
+        
+        .theme-toggle {
+            display: none;
         }
     }
     
@@ -409,14 +468,16 @@
 
 </head>
 <body>
-    <div class="container">
-        <div class="cover">
-            <h1>How I Wrote & Published<br>My Novel in 30 Days</h1>
-            <div class="subtitle">A Complete AI-Assisted Novel Writing Workflow</div>
-            <div class="author">By Manoj Nayak<br>Author of The Bombay Business Club</div>
-        </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
 
 ```
+<div class="container">
+    <div class="cover">
+        <h1>How I Wrote & Published<br>My Novel in 30 Days</h1>
+        <div class="subtitle">A Complete AI-Assisted Novel Writing Workflow</div>
+        <div class="author">By Manoj Nayak<br>Author of The Bombay Business Club</div>
+    </div>
+
     <div class="story-box">
         <h2>My Story: From 10-Year Dream to 30-Day Reality</h2>
         <p>I had a story burning inside me. A novel called <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a> that I desperately wanted to write. But like many aspiring authors, I looked at the mountain ahead and thought: "This will take at least 10 years."</p>
@@ -580,25 +641,23 @@
 
     <h2>Part 3: Creating Supporting Content</h2>
 
-    <h3>Audio & Video Marketing</h3>
+    <h3>Deep Dive Podcast with NotebookLM</h3>
 
-    <h4>NotebookLLM Audio Podcasts</h4>
-    <p>I created audio versions of my book using NotebookLM.</p>
+    <p>I created a <strong>Deep Dive overview podcast</strong> of my novel using NotebookLM's audio generation feature. This wasn't an audiobook of the entire novel, but rather an engaging discussion-style overview that gives potential readers a taste of the story.</p>
     
     <div class="highlight-box">
-        <p><strong>Results:</strong></p>
+        <p><strong>What I did:</strong></p>
         <ul>
-            <li>Almost 200 listens</li>
-            <li>Great for people who prefer audio content</li>
-            <li>Easy to share on WhatsApp and social media</li>
+            <li>Fed my novel chapters into NotebookLM</li>
+            <li>Generated an AI-hosted "Deep Dive" conversation about the book</li>
+            <li>Embedded the audio podcast on my website</li>
+            <li>Shared it across social media</li>
         </ul>
+        <p><strong>Results:</strong> Almost 200 listens! People love this format because it's like hearing two people discuss your book in an engaging, conversational way.</p>
     </div>
 
-    <h4>Video Trailers</h4>
-    <p>I also created video trailers, though these haven't gotten as much traction as the audio.</p>
-    
     <div class="tip-box">
-        Audio content seems to resonate more with readers than video for books.
+        Deep Dive podcasts are more engaging than video trailers for books. Audio content allows people to listen while multitasking.
     </div>
 
     <h3>Your Author Website</h3>
@@ -613,11 +672,73 @@
         <li>Book description</li>
         <li>Download links</li>
         <li>Links to all platforms</li>
-        <li>Audio podcast embed</li>
+        <li>Deep Dive podcast embed</li>
         <li>Contact information</li>
     </ul>
 
+    <div class="page-break"></div>
+
     <h2>Part 4: Distribution & Marketing Strategy</h2>
+
+    <h3>Email Marketing Campaigns</h3>
+
+    <p>Email marketing was crucial for reaching readers directly. I used multiple platforms to maximize my free tier limits:</p>
+
+    <div class="resources-grid">
+        <div class="resource-card">
+            <h4>Mailchimp</h4>
+            <p><a href="https://mailchimp.com" target="_blank">mailchimp.com</a></p>
+            <p><strong>Free tier:</strong> 500 contacts</p>
+            <p><strong>Best feature:</strong> Direct HTML code insertion</p>
+            <p>Generate email HTML with ChatGPT or Claude, then paste directly into Mailchimp</p>
+        </div>
+
+        <div class="resource-card">
+            <h4>EmailOctopus</h4>
+            <p><a href="https://emailoctopus.com" target="_blank">emailoctopus.com</a></p>
+            <p><strong>Free tier:</strong> 2,500 contacts</p>
+            <p><strong>Best feature:</strong> HTML code support</p>
+            <p>My preferred choice due to generous free tier and HTML flexibility</p>
+        </div>
+
+        <div class="resource-card">
+            <h4>MailerLite</h4>
+            <p><a href="https://mailerlite.com" target="_blank">mailerlite.com</a></p>
+            <p><strong>Free tier:</strong> 1,000 contacts</p>
+            <p><strong>Note:</strong> Good alternative with decent features</p>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        I prefer Mailchimp and EmailOctopus because they let you insert custom HTML code directly. Just generate beautiful email templates using Claude or ChatGPT, and paste the HTML!
+    </div>
+
+    <h3>WhatsApp & SMS Campaigns with Apple Shortcuts</h3>
+
+    <p>This is where automation became a game-changer. I configured <strong>Apple Shortcuts</strong> to automate bulk messaging:</p>
+
+    <div class="highlight-box">
+        <h4>My Apple Shortcuts Setup:</h4>
+        <ol>
+            <li><strong>Prepare Excel sheet</strong> with mobile numbers and names</li>
+            <li><strong>Create Shortcut</strong> to read Excel data</li>
+            <li><strong>Auto-send personalized messages</strong> via WhatsApp</li>
+            <li><strong>Auto-send SMS</strong> for non-WhatsApp contacts</li>
+        </ol>
+        <p><strong>How it works:</strong> The shortcut reads each row from your Excel file, personalizes the message with the contact's name, and automatically sends it via WhatsApp or SMS.</p>
+    </div>
+
+    <p><strong>Benefits:</strong></p>
+    <ul>
+        <li>Completely free (no bulk SMS costs)</li>
+        <li>Personal touch with name customization</li>
+        <li>Works directly from iPhone</li>
+        <li>Can process hundreds of contacts automatically</li>
+    </ul>
+
+    <div class="tip-box">
+        Apple Shortcuts for bulk messaging is a hidden gem! While others pay for SMS services, you can reach your entire contact list for free using your existing WhatsApp and SMS.
+    </div>
 
     <h3>Free Distribution</h3>
     <p><strong>Why I chose free:</strong> The marginal cost of distributing digital books is zero. Why not give it away and build an audience?</p>
@@ -652,242 +773,5 @@
     Professional writing software that exports to multiple formats. Worth the investment if you plan to write more books.</p>
 
     <p><strong>Option 3: Online Converters</strong><br>
-    Many free PDF to ePub converters available online. Quality varies, so test before distributing.</p>
-
-    <h3>Media Outreach</h3>
-
-    <h4>Scribd for Media Lists</h4>
-    <p>I took a free one-month trial of Scribd where I downloaded:</p>
-    <ul>
-        <li>Bollywood media contact lists</li>
-        <li>Book reviewer lists</li>
-        <li>Journalist contact information</li>
-    </ul>
-    <p>Then I sent personalized emails to these contacts introducing my novel.</p>
-
-    <h3>Leveraging Your Existing Network</h3>
-
-    <p><strong>WhatsApp Broadcast Lists</strong><br>
-    Don't underestimate the power of your existing network. My WhatsApp broadcasts generated initial buzz.</p>
-
-    <p><strong>Email Lists</strong><br>
-    I was already on Substack and other mailing platforms, which I leveraged for announcements.</p>
-
-    <p><strong>Social Media</strong><br>
-    Regular updates on writing progress, publication milestones, and reader testimonials.</p>
-
-    <div class="page-break"></div>
-
-    <h2>Part 5: Tools & Resources Summary</h2>
-
-    <div class="resources-grid">
-        <div class="resource-card">
-            <h4>Writing Tools</h4>
-            <ul style="margin-left: 0; list-style: none;">
-                <li>• <a href="https://claude.ai" target="_blank">Claude AI</a></li>
-                <li>• Audio Recorder (any app)</li>
-                <li>• <a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
-            </ul>
-        </div>
-
-        <div class="resource-card">
-            <h4>Publishing</h4>
-            <ul style="margin-left: 0; list-style: none;">
-                <li>• <a href="https://kdp.amazon.com" target="_blank">Amazon KDP</a></li>
-                <li>• <a href="https://play.google.com/books/publish" target="_blank">Google Play</a></li>
-                <li>• <a href="https://www.apple.com/apple-books" target="_blank">Apple Books</a></li>
-                <li>• <a href="https://pothi.com" target="_blank">Pothi.com</a></li>
-                <li>• <a href="https://gumroad.com" target="_blank">Gumroad</a></li>
-            </ul>
-        </div>
-
-        <div class="resource-card">
-            <h4>Distribution</h4>
-            <ul style="margin-left: 0; list-style: none;">
-                <li>• <a href="https://www.wattpad.com" target="_blank">Wattpad</a></li>
-                <li>• <a href="https://www.webnovel.com" target="_blank">Webnovel</a></li>
-            </ul>
-        </div>
-
-        <div class="resource-card">
-            <h4>Supporting Tools</h4>
-            <ul style="margin-left: 0; list-style: none;">
-                <li>• NotebookLM</li>
-                <li>• Firebase Studio</li>
-                <li>• Scrivener</li>
-                <li>• Scribd</li>
-            </ul>
-        </div>
-    </div>
-
-    <h2>Cost Breakdown</h2>
-
-    <table class="cost-table">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Free Option</th>
-                <th>Paid Option</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Claude AI</td>
-                <td>Free (4-hour wait)</td>
-                <td>₹1,999/month</td>
-            </tr>
-            <tr>
-                <td>Amazon KDP</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Google Play Books</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Apple Books</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Gumroad</td>
-                <td>Free (commission)</td>
-                <td>Free (commission)</td>
-            </tr>
-            <tr>
-                <td>Pothi.com</td>
-                <td>Free (print on demand)</td>
-                <td>Free (print on demand)</td>
-            </tr>
-            <tr>
-                <td>Wattpad/Webnovel</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Firebase Website</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>NotebookLM</td>
-                <td>Free</td>
-                <td>Free</td>
-            </tr>
-            <tr>
-                <td>Scrivener (optional)</td>
-                <td>-</td>
-                <td>~₹4,000 one-time</td>
-            </tr>
-            <tr>
-                <td><strong>TOTAL</strong></td>
-                <td><strong>₹0</strong></td>
-                <td><strong>₹1,999/month while writing</strong></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>My 30-Day Timeline</h2>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <strong>Days 1-3:</strong> Planning and chapter breakdown
-        </div>
-        <div class="timeline-item">
-            <strong>Days 4-27:</strong> Writing (one part every 2-3 days)
-        </div>
-        <div class="timeline-item">
-            <strong>Days 28-29:</strong> Final editing and formatting
-        </div>
-        <div class="timeline-item">
-            <strong>Day 30:</strong> Upload to all platforms
-        </div>
-    </div>
-
-    <div class="tip-box">
-        The actual writing took about 24 days. The rest was formatting and uploading.
-    </div>
-
-    <div class="page-break"></div>
-
-    <h2>Common Mistakes I Made (So You Don't Have To)</h2>
-
-    <div class="story-box">
-        <ol>
-            <li><strong>Not creating character sketches early enough</strong> - Start this from Chapter 2 or 3</li>
-            <li><strong>Writing one chapter in ChatGPT</strong> - Stick to one AI platform for consistency</li>
-            <li><strong>Not testing PDF formats with beta readers sooner</strong> - Test early and often</li>
-            <li><strong>Underestimating the time for platform approvals</strong> - Start the Google Play and Apple Books process early</li>
-        </ol>
-    </div>
-
-    <div class="cta-box">
-        <h3>Your Next Steps</h3>
-        <ol style="text-align: left; max-width: 600px; margin: 20px auto;">
-            <li><strong>Choose your story</strong> - What have you been putting off?</li>
-            <li><strong>Break it down</strong> - Chapters and parts, make it manageable</li>
-            <li><strong>Start with one part</strong> - Narrate it today</li>
-            <li><strong>Feed it to Claude</strong> - Get your first draft</li>
-            <li><strong>Refine and repeat</strong> - 4-5 iterations per part</li>
-        </ol>
-    </div>
-
-    <div class="contact-box">
-        <h3>Need Help?</h3>
-        <p>If you need guidance on any part of this workflow, I'm happy to help.<br>I offer free consultations because I believe everyone has a story worth telling.</p>
-        
-        <div style="margin-top: 30px;">
-            <a href="tel:+919892334681">📞 +91 98923 34681</a>
-            <a href="mailto:manoj@manojnayak.com">✉️ manoj@manojnayak.com</a>
-            <a href="https://manojnayak.com" target="_blank">🌐 manojnayak.com</a>
-        </div>
-    </div>
-
-    <h2>Final Thoughts</h2>
-
-    <div class="highlight-box">
-        <p style="font-size: 18px; line-height: 1.8;">A year ago, "write a novel" was in my 10-year bucket list. Today, <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a> is published and being read by people around the world.</p>
-        
-        <p style="font-size: 18px; line-height: 1.8;">The difference? I stopped seeing it as one massive project and started seeing it as 60 small tasks.</p>
-    </div>
-
-    <div class="cta-box">
-        <h3 style="font-size: 32px;">You have a story in you.</h3>
-        <p style="font-size: 18px; margin: 20px 0;">With AI as your co-pilot and this workflow as your map, there's nothing stopping you from writing it in the next 30 days.</p>
-        <p style="font-size: 22px; font-weight: 700; margin-top: 30px;">Your novel is waiting. Start today.</p>
-    </div>
-
-    <hr style="border: none; border-top: 2px solid #e2e8f0; margin: 50px 0;">
-
-    <div style="text-align: center; padding: 40px 0;">
-        <h3>About the Author</h3>
-        <p style="font-size: 18px; line-height: 1.8; max-width: 700px; margin: 20px auto;">
-            <strong><a href="https://manojnayak.com" target="_blank">Manoj Nayak</a></strong> is the author of <a href="https://thebbc.shop" target="_blank"><strong>The Bombay Business Club</strong></a>, a novel written and published in 30 days using AI-assisted writing techniques. Through this innovative approach, Manoj transformed a 10-year dream into reality, proving that with the right tools and workflow, anyone can become a published author.
-        </p>
-        
-        <div style="margin: 40px 0;">
-            <a href="https://thebbc.shop" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; margin: 10px;">Read The Bombay Business Club</a>
-        </div>
-
-        <p style="margin-top: 30px; color: #718096;">
-            Connect with Manoj:<br>
-            <a href="https://manojnayak.com" target="_blank">manojnayak.com</a> | 
-            <a href="mailto:manoj@manojnayak.com">manoj@manojnayak.com</a> | 
-            <a href="tel:+919892334681">+91 98923 34681</a>
-        </p>
-    </div>
-
-    <div style="background: #f7fafc; padding: 30px; border-radius: 12px; text-align: center; margin: 50px 0;">
-        <p style="font-style: italic; color: #4a5568; font-size: 16px; margin: 0;">
-            This guide is free to share and distribute.<br>
-            If it helped you, pay it forward by helping another aspiring author.
-        </p>
-    </div>
-
-</div>
+    Many free PDF to ePub converters available online. Quality varies, so test before distrib
 ```
-
-</body>
-</html>
